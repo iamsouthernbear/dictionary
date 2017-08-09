@@ -1,3 +1,19 @@
-<p class="wrapper">
-  words works!
-</p>
+<div class="wrapper">
+  <p>
+    words works!
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <td>id</td>
+        <td>eng</td>
+        <td>ru</td>
+      </tr>
+    </thead>
+    <tr *ngFor="let word of mockData">
+      <td>{{word.id}}</td>
+      <td>{{word.eng}}</td>
+      <td>{{word.ru}}</td>
+    </tr>
+  </table>
+</div>
