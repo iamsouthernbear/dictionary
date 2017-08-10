@@ -1,7 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,17 +23,9 @@ import { WordsService } from './service/words.service';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'words',
-        component: WordsComponent
-      },
-      {
-        path: 'new-word',
-        component: NewWordComponent
-      }
-    ])
+    AppRoutingModule
   ],
   providers: [WordsService],
   bootstrap: [AppComponent]
