@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import * as data from '../../mock/dataBase.json';
+import { Word } from '../../word';
+
 
 @Component({
   selector: 'app-words',
   templateUrl: './words.component.html',
   styleUrls: ['./words.component.css']
 })
-export class WordsComponent implements OnInit {
+export class WordsComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  mockData: Word[] = data['words'];
 
 }
