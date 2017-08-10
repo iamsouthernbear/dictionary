@@ -17,7 +17,9 @@ export class WordsComponent implements OnInit {
   ngOnInit() {
     this.wordsService
       .getWords()
-        .subscribe(response => this.mockData = response,
-                   error => console.log(error));
+      .subscribe(
+        response => this.mockData = response,
+        error => console.log(error)
+      );
   }
 }
