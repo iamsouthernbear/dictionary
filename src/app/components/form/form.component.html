@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="col-md-6 wrapper form">
+    <h1>Create your word</h1>
+    <form #wordForm="ngForm">
+      <div class="form-group">
+        <label for="eng">Eng</label>
+        <input type="text" class="form-control" id="eng" name="eng"
+               #eng="ngModel" [(ngModel)]="newWord.eng" required />
+      </div>
+      <div [hidden]="eng.valid || eng.pristine" class="alert alert-danger">
+        Eng is required
+      </div>
+
+      <div class="form-group">
+        <label for="ru">Ru</label>
+        <input type="text" class="form-control" id="ru" name="ru"
+               #ru="ngModel" [(ngModel)]="newWord.ru" required />
+      </div>
+      <div [hidden]="ru.valid || ru.pristine" class="alert alert-danger">
+        Ru is required
+      </div>
+
+      <button type="submit"
+              class="btn btn-success"
+              [disabled]="!wordForm.form.valid"
+              (click)="addWord() ; wordForm.reset()">Create</button>
+    </form>
+  </div>
+</div>

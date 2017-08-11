@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
-    "json-server": "json-server --watch dataBase.json --routing routes.json",
+    "json-server": "json-server --watch dataBase.json --routes routes.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

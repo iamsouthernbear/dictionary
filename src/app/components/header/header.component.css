@@ -1,4 +1,8 @@
-.page-header {
+.nav {
   margin-bottom: 0;
   border-bottom: solid 1px black;
+}
+
+.navbar-default {
+  background-color: white;
 }

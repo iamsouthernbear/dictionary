@@ -12,6 +12,10 @@ import { WordsComponent } from './components/words/words.component';
 import { NewWordComponent } from './components/new-word/new-word.component';
 
 import { WordsService } from './service/words.service';
+import { CanActivateGuardService } from './service/can-activate-guard.service';
+import { CanDeactivateGuardService } from './service/can-deactivate-guard.service';
+import { FormComponent } from './components/form/form.component';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { WordsService } from './service/words.service';
     HeaderComponent,
     SidebarComponent,
     WordsComponent,
-    NewWordComponent
+    NewWordComponent,
+    FormComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,7 @@ import { WordsService } from './service/words.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [WordsService],
+  providers: [WordsService, CanDeactivateGuardService, CanActivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CanDeactivateGuardService } from '../../service/can-deactivate-guard.service';
+import { FormComponent } from '../form/form.component';
 
 @Component({
   selector: 'app-new-word',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewWordComponent implements OnInit {
 
-  constructor() { }
+  constructor(CanDeactivateGuard: CanDeactivateGuardService) { }
+
+  @ViewChild('form')
+  public form: FormComponent;
+
 
   ngOnInit() {
   }

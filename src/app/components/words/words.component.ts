@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Word } from '../../word';
+import { Word } from '../../models/word';
 import { WordsService } from '../../service/words.service';
 
 
@@ -10,7 +10,7 @@ import { WordsService } from '../../service/words.service';
 })
 export class WordsComponent implements OnInit {
 
-  public mockData: Word[] = [];
+  public words: Word[] = [];
 
   constructor(private wordsService: WordsService) {}
 
@@ -18,7 +18,7 @@ export class WordsComponent implements OnInit {
     this.wordsService
       .getWords()
       .subscribe(
-        response => this.mockData = response,
+        response => this.words = response,
         error => console.log(error)
       );
   }

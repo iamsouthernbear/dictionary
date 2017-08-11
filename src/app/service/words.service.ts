@@ -2,21 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { Word } from '../word';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { IWord, Word } from '../models/word';
 
 @Injectable()
 export class WordsService {
 
   constructor(private _http: HttpClient) {}
 
+  public wordsLength: number;
+
   public getWords(): Observable<Word[]> {
     return Observable.create(observer => {
       this._http
-        .get('/api/words')
+        .get<IWord[]>('/api/words')
         .subscribe(
-          response => observer.next(response),
+          response => observer.next(
+            response.map(word => new Word(word))
+          ),
           errors => observer.error(errors)
         );
     });
+  }
+
+  public postWord(word: Word): Observable<Word> {
+    return this._http
+             .post('/api/words', word, Option)
+             .catch(error => Observable.throw(error));
+  }
+
+  public isEnaugh(): boolean {
+    this.getWords()
+        .subscribe(
+          response => this.wordsLength = response.length);
+    return this.wordsLength >= 19 ? true : false;
   }
 }
