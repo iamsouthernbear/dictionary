@@ -11,31 +11,21 @@ export class WordsService {
 
   constructor(private _http: HttpClient) {}
 
-  public wordsLength: number;
-
   public getWords(): Observable<Word[]> {
     return Observable.create(observer => {
       this._http
         .get<IWord[]>('/api/words')
         .subscribe(
-          response => observer.next(
-            response.map(word => new Word(word))
-          ),
+          response => {
+          observer.next(response.map(word => new Word(word))),
           errors => observer.error(errors)
-        );
-    });
-  }
+        }
+    )}
+  )}
 
   public postWord(word: Word): Observable<Word> {
     return this._http
              .post('/api/words', word, Option)
              .catch(error => Observable.throw(error));
-  }
-
-  public isEnaugh(): boolean {
-    this.getWords()
-        .subscribe(
-          response => this.wordsLength = response.length);
-    return this.wordsLength >= 19 ? true : false;
   }
 }

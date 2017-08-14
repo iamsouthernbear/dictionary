@@ -9,8 +9,8 @@ export class CanDeactivateGuardService implements CanDeactivate<any> {
 
   constructor() { }
 
-  canDeactivate(component: NewWordComponent): Observable<any> {
-    return Observable.create((observer: Observer<any>) => {
+  canDeactivate(component: NewWordComponent): Observable<boolean> {
+    return Observable.create((observer: Observer<boolean>) => {
       if (component.form.newWord.eng || component.form.newWord.ru) {
         confirm('Вы точно хотите выйти со страницы?') ? observer.next(true) : observer.next(false);
       } else {
