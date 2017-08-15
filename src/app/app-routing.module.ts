@@ -6,6 +6,7 @@ import { NewWordComponent } from './components/new-word/new-word.component';
 import { TestComponent } from './components/test/test.component';
 import { CanActivateGuardService } from './service/can-activate-guard.service';
 import { CanDeactivateGuardService } from './service/can-deactivate-guard.service';
+import { TaskCanDeactivateGuardService } from './service/task-can-deactivate-guard.service';
 
 const routes = [
   {
@@ -20,7 +21,8 @@ const routes = [
   {
     path: 'test',
     component: TestComponent,
-    canActivate: [CanActivateGuardService]
+    canActivate: [CanActivateGuardService],
+    canDeactivate: [TaskCanDeactivateGuardService]
   }
 ];
 

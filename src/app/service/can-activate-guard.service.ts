@@ -8,17 +8,17 @@ import { Observer }    from 'rxjs/Observer';
 @Injectable()
 export class CanActivateGuardService implements CanActivate {
 
-  constructor(private wordsService: WordsService, private router: Router) {}
+  constructor(private _wordsService: WordsService, private _router: Router) {}
 
 
   canActivate(): Observable<boolean> {
     return Observable.create((observer: Observer<boolean>) => {
-      this.wordsService.getWords().subscribe(words => {
+      this._wordsService.getWords().subscribe(words => {
         if (words.length > 19) {
           observer.next(true);
         } else {
           alert('Need more words!'),
-          this.router.navigate(['/new-word']),
+          this._router.navigate(['/new-word']),
           observer.next(false);
         }
       })

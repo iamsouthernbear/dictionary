@@ -14,6 +14,8 @@ import { NewWordComponent } from './components/new-word/new-word.component';
 import { WordsService } from './service/words.service';
 import { CanActivateGuardService } from './service/can-activate-guard.service';
 import { CanDeactivateGuardService } from './service/can-deactivate-guard.service';
+import { TaskCanDeactivateGuardService } from './service/task-can-deactivate-guard.service';
+import { TaskService } from './service/task.service';
 import { FormComponent } from './components/form/form.component';
 import { TestComponent } from './components/test/test.component';
 
@@ -33,7 +35,8 @@ import { TestComponent } from './components/test/test.component';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [WordsService, CanDeactivateGuardService, CanActivateGuardService],
+  providers: [WordsService, TaskService, CanDeactivateGuardService,
+              CanActivateGuardService, TaskCanDeactivateGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
