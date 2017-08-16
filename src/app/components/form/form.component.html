@@ -5,19 +5,19 @@
       <div class="form-group">
         <label for="eng">Eng</label>
         <input type="text" class="form-control" id="eng" name="eng"
-               #eng="ngModel" [(ngModel)]="newWord.eng" required />
+               #eng="ngModel" [(ngModel)]="newWord.eng" required pattern="[a-zA-Z]*" />
       </div>
-      <div [hidden]="eng.valid || eng.pristine" class="alert alert-danger">
-        Eng is required
+      <div [hidden]="eng.valid || newWord.eng.length == 0" class="alert alert-danger">
+        Enter english word
       </div>
 
       <div class="form-group">
         <label for="ru">Ru</label>
         <input type="text" class="form-control" id="ru" name="ru"
-               #ru="ngModel" [(ngModel)]="newWord.ru" required />
+               #ru="ngModel" [(ngModel)]="newWord.ru" required pattern="[а-яА-Я]*" />
       </div>
-      <div [hidden]="ru.valid || ru.pristine" class="alert alert-danger">
-        Ru is required
+      <div [hidden]="ru.valid || newWord.ru.length == 0" class="alert alert-danger">
+        Enter translation
       </div>
 
       <button type="submit"

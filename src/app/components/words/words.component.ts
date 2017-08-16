@@ -12,10 +12,10 @@ export class WordsComponent implements OnInit {
 
   public words: Word[] = [];
 
-  constructor(private wordsService: WordsService) {}
+  constructor(private _wordsService: WordsService) {}
 
   ngOnInit() {
-    this.wordsService
+    this._wordsService
       .getWords()
       .subscribe(
         response => this.words = response,
