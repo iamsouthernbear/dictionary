@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="col-md-6 wrapper form">
-    <h1>Create your word</h1>
+    <h1>Add your word</h1>
     <form #wordForm="ngForm">
       <div class="form-group">
         <label for="eng">Eng</label>
@@ -23,7 +23,7 @@
       <button type="submit"
               class="btn btn-success"
               [disabled]="!wordForm.form.valid"
-              (click)="addWord() ; wordForm.reset()">Create</button>
+              (click)="addWord() ; wordForm.reset()">Add</button>
     </form>
   </div>
 </div>
