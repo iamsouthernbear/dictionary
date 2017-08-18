@@ -10,34 +10,33 @@ import { Task } from '../../models/task';
 })
 export class TestComponent implements OnInit {
 
-  public rightAnswer: number = 0;
-  public isEnd: boolean = false;
+  public rightAnswer = 0;
+  public isEnd = false;
 
   public task: Task;
+
+  constructor(public taskService: TaskService) {}
 
   public newTask(word?: Word): void {
     if (word.id === this.task.currentWord.id) {
       this.rightAnswer++;
-    };
-    if (this._taskService.mainArray.length === 0) {
+    }
+    if (this.taskService.mainArray.length === 0) {
       this.isEnd = true;
       return;
-    };
-    this.task = new Task(this._taskService.newTask());
+    }
+    this.task = new Task(this.taskService.newTask());
   }
 
   public newTest(): void {
-    this._taskService.updateList().subscribe(() =>
-      this.task = new Task(this._taskService.newTask()));
+    this.taskService.updateList().subscribe(() =>
+      this.task = new Task(this.taskService.newTask()));
     this.isEnd = false;
     this.rightAnswer = 0;
   }
 
-
-  constructor(private _taskService: TaskService) {}
-
   ngOnInit() {
-    this._taskService.updateList().subscribe(() =>
-      this.task = new Task(this._taskService.newTask()));
+    this.taskService.updateList().subscribe(() =>
+      this.task = new Task(this.taskService.newTask()));
   }
 }

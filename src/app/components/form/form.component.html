@@ -5,7 +5,8 @@
       <div class="form-group">
         <label for="eng">Eng</label>
         <input type="text" class="form-control" id="eng" name="eng"
-               #eng="ngModel" [(ngModel)]="newWord.eng" required pattern="[a-zA-Z]*" />
+               #eng="ngModel" [(ngModel)]="newWord.eng"
+               required pattern="[a-zA-Z]*" />
       </div>
       <div [hidden]="eng.valid || !newWord.eng" class="alert alert-danger">
         Enter english word
@@ -14,7 +15,8 @@
       <div class="form-group">
         <label for="ru">Ru</label>
         <input type="text" class="form-control" id="ru" name="ru"
-               #ru="ngModel" [(ngModel)]="newWord.ru" required pattern="[а-яА-Я]*" />
+               #ru="ngModel" [(ngModel)]="newWord.ru" required
+               pattern="[а-яА-Я]*" />
       </div>
       <div [hidden]="ru.valid || !newWord.ru" class="alert alert-danger">
         Enter translation

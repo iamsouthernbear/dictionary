@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { Observable }    from 'rxjs/Observable';
-import { Observer }    from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 import { NewWordComponent } from '../components/new-word/new-word.component';
 
 @Injectable()

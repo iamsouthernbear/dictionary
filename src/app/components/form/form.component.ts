@@ -16,6 +16,6 @@ export class FormComponent {
   addWord() {
     return this._wordsService
            .postWord(this.newWord)
-           .subscribe()
+           .subscribe();
   }
 }

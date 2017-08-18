@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { WordsService } from './words.service';
-import { Observable }    from 'rxjs/Observable';
-import { Observer }    from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 
 
 @Injectable()
@@ -21,7 +21,7 @@ export class CanActivateGuardService implements CanActivate {
           this._router.navigate(['/new-word']),
           observer.next(false);
         }
-      })
-    })
+      });
+    });
   }
 }

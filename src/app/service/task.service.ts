@@ -12,7 +12,7 @@ export class TaskService {
   public fullArray: Word[];
 
   public shuffle(array): Array<any> {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
@@ -24,12 +24,12 @@ export class TaskService {
   }
 
   public newTask(): Task {
-    let currentWordIndex: number = Math.floor(Math.random() * this.mainArray.length);
-    let task: Task = new Task;
+    const currentWordIndex: number = Math.floor(Math.random() * this.mainArray.length);
+    const task: Task = new Task;
     let list: Word[];
     task.currentWord = this.mainArray[currentWordIndex];
     this.mainArray.splice(currentWordIndex, 1);
-    list = this.shuffle(this.fullArray.filter(word => word.id != task.currentWord.id));
+    list = this.shuffle(this.fullArray.filter(word => word.id !== task.currentWord.id));
     list = list.slice(0, 4);
     list.push(task.currentWord);
     task.wordsList = this.shuffle(list);
@@ -42,16 +42,16 @@ export class TaskService {
         .get<IWord[]>('/api/words')
         .subscribe(
           response => {
-          let words = response.map(word => new Word(word));
-          this.mainArray = words.slice();
-          this.fullArray = words.slice();
-          observer.next();
-          observer.complete,
+            const words = response.map(word => new Word(word));
+            this.mainArray = words.slice();
+            this.fullArray = words.slice();
+            observer.next();
+          },
           errors => observer.error(errors)
-        }
-    )}
-   )
-  }
+        );
+     }
+  );
+ }
 
   constructor(private _http: HttpClient) { }
 

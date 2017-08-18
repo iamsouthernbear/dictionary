@@ -18,6 +18,7 @@ import { TaskCanDeactivateGuardService } from './service/task-can-deactivate-gua
 import { TaskService } from './service/task.service';
 import { FormComponent } from './components/form/form.component';
 import { TestComponent } from './components/test/test.component';
+import { WordDetailComponent } from './components/word-detail/word-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TestComponent } from './components/test/test.component';
     WordsComponent,
     NewWordComponent,
     FormComponent,
-    TestComponent
+    TestComponent,
+    WordDetailComponent
   ],
   imports: [
     BrowserModule,

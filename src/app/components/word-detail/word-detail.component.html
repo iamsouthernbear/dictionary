@@ -1,0 +1,44 @@
+<div class="container" *ngIf="word">
+  <div class="wrapper marginTop text-center">
+    <div class="col-md-6 col-md-offset-1">
+
+      <div class="input-group">
+        <label for="id" class="input-group-addon">id</label>
+        <input type="text" class="form-control" name="id"
+               [(ngModel)]="word.id" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="eng" class="input-group-addon">Eng word</label>
+        <input type="text" class="form-control" name="eng"
+               #upEng="ngModel" [(ngModel)]="word.eng" required
+               pattern="[a-zA-z]*" />
+      </div>
+      <div [hidden]="upEng.valid" class="alert alert-danger leftCut">
+        Enter english word
+      </div>
+
+
+      <div class="input-group">
+        <label for="ru" class="input-group-addon">Translation</label>
+        <input type="text" class="form-control" name="ru"
+               #upRu="ngModel" [(ngModel)]="word.ru" required
+               pattern="[а-яА-я]*" />
+      </div>
+      <div [hidden]="upRu.valid" class="alert alert-danger leftCut">
+        Enter translation
+      </div>
+
+      <div class="btnGroup">
+        <button type="button" class="btn btn-default"
+                (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-success"
+                (click)="upWord(); goBack()"
+                [disabled]="!upRu.valid || !upEng.valid">Save</button>
+        <button type="button" class="btn btn-danger"
+                (click)="delWord(); goBack()">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>

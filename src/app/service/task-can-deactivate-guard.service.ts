@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 import { TestComponent } from '../components/test/test.component';
-import { Observable }    from 'rxjs/Observable';
-import { Observer }    from 'rxjs/Observer';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 import { TaskService } from './task.service';
 
 @Injectable()
