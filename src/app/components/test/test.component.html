@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row" *ngIf="isEnd === false; else finish">
+    <div class="col-md-8 wrapper">
+      <div>
+        <h3 class="marginTop text-center">{{ task?.currentWord.eng }}</h3>
+      </div>
+      <button type="button" class="btn btn-default btn-lg btn-block"
+              (click)="newTask(word)" *ngFor="let word of task?.wordsList">
+              {{ word.ru }}</button>
+    </div>
+    <div class="col-md-1 marginTop text-right">
+      <h3>{{taskService.fullArray?.length - taskService.mainArray?.length}}/{{taskService.fullArray?.length}}</h3>
+    </div>
+  </div>
+
+  <ng-template class="row" #finish>
+    <div class="col-md-8 wrapper marginTop text-center">
+      <h3>Congratulations!</h3>
+      <p class="lead">
+        Your result: {{rightAnswer}} correct answer!
+      </p>
+      <button type="button" class="btn btn-default"
+              (click)="newTest()">Try again?</button>
+    </div>
+  </ng-template>
+</div>

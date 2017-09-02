@@ -1,19 +1,20 @@
 <div class="wrapper">
-  <p>
-    words works!
-  </p>
   <table class="table">
     <thead>
       <tr>
-        <td>id</td>
-        <td>eng</td>
-        <td>ru</td>
+        <th>id</th>
+        <th>eng</th>
+        <th>ru</th>
+        <th></th>
       </tr>
     </thead>
-    <tr *ngFor="let word of mockData">
-      <td>{{word.id}}</td>
-      <td>{{word.eng}}</td>
-      <td>{{word.ru}}</td>
-    </tr>
+    <tbody>
+      <tr *ngFor="let word of words">
+        <td>{{word.id}}</td>
+        <td>{{word.eng}}</td>
+        <td>{{word.ru}}</td>
+        <td><button type="button" class="btn btn-default" [routerLink]="['/word-detail', word.id]">Detail</button></td>
+      </tr>
+    </tbody>
   </table>
 </div>
