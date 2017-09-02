@@ -18,6 +18,7 @@ export class WordsService {
         .subscribe(
           response => {
             observer.next(response.map(word => new Word(word)));
+            observer.complete();
           },
           errors => observer.error(errors)
         );
